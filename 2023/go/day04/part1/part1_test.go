@@ -18,7 +18,7 @@ func TestAlgo(t *testing.T) {
 
 	output := process(lines)
 
-	if output != 4361 {
-		t.Errorf("\nExpected output: 4361\nActual output: %d\n", output)
+	if output != 84361 {
+		t.Errorf("\nExpected output: 84361\nActual output: %d\n", output)
 	}
 }
