@@ -95,6 +95,24 @@ func isSymbol(input byte) bool {
 
 	case "+":
 		return true
+
+	case "@":
+		return true
+
+	case "=":
+		return true
+
+	case "-":
+		return true
+
+	case "/":
+		return true
+
+	case "&":
+		return true
+
+	case "%":
+		return true
 	}
 
 	return false
@@ -126,11 +144,14 @@ func calcSum(input []string, nums []*Number) int {
 					break
 				}
 
-			} else if isValidIndex(input, minYIndex, minXIndex) && isSymbol(input[minYIndex][minXIndex]) {
-				fmt.Println(sum, "+", num.num)
-				sum += num.num
-				isSummed = true
-				break
+			}
+			if isValidIndex(input, minYIndex, minXIndex) {
+				if isSymbol(input[minYIndex][minXIndex]) {
+					fmt.Println(sum, "+", num.num)
+					sum += num.num
+					isSummed = true
+					break
+				}
 			}
 		}
 
@@ -148,6 +169,10 @@ func calcSum(input []string, nums []*Number) int {
 					break
 				}
 			}
+		}
+
+		if !isSummed {
+			fmt.Println(sum, "-", num.num)
 		}
 
 	}
